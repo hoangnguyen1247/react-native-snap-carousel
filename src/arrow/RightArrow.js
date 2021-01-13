@@ -27,7 +27,10 @@ class RightArrow extends React.Component {
         );
 
         return (
-            <View style={styles.container}>
+            <View 
+                style={styles.container}
+                pointerEvents="box-none"
+            >
                 {comps}
             </View>
         )
