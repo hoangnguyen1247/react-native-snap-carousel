@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
-import PropTypes from 'prop-types';
-import { ParallaxImage } from 'react-native-snap-carousel';
-import styles from '../styles/SliderEntry.style';
+import React, { Component } from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
+import PropTypes from "prop-types";
+import { ParallaxImage } from "react-native-snap-carousel";
+import styles from "../styles/SliderEntry.style";
 
 export default class SliderEntry extends Component {
 
@@ -18,18 +18,18 @@ export default class SliderEntry extends Component {
 
         return parallax ? (
             <ParallaxImage
-              source={{ uri: illustration }}
-              containerStyle={[styles.imageContainer, even ? styles.imageContainerEven : {}]}
-              style={styles.image}
-              parallaxFactor={0.35}
-              showSpinner={true}
-              spinnerColor={even ? 'rgba(255, 255, 255, 0.4)' : 'rgba(0, 0, 0, 0.25)'}
-              {...parallaxProps}
+                source={{ uri: illustration }}
+                containerStyle={[styles.imageContainer, even ? styles.imageContainerEven : {}]}
+                style={styles.image}
+                parallaxFactor={0.35}
+                showSpinner={true}
+                spinnerColor={even ? "rgba(255, 255, 255, 0.4)" : "rgba(0, 0, 0, 0.25)"}
+                {...parallaxProps}
             />
         ) : (
             <Image
-              source={{ uri: illustration }}
-              style={styles.image}
+                source={{ uri: illustration }}
+                style={styles.image}
             />
         );
     }
@@ -39,8 +39,8 @@ export default class SliderEntry extends Component {
 
         const uppercaseTitle = title ? (
             <Text
-              style={[styles.title, even ? styles.titleEven : {}]}
-              numberOfLines={2}
+                style={[styles.title, even ? styles.titleEven : {}]}
+                numberOfLines={2}
             >
                 { title.toUpperCase() }
             </Text>
@@ -48,10 +48,10 @@ export default class SliderEntry extends Component {
 
         return (
             <TouchableOpacity
-              activeOpacity={1}
-              style={styles.slideInnerContainer}
-              onPress={() => { alert(`You've clicked '${title}'`); }}
-              >
+                activeOpacity={1}
+                style={styles.slideInnerContainer}
+                onPress={() => { alert(`You've clicked '${title}'`); }}
+            >
                 <View style={styles.shadow} />
                 <View style={[styles.imageContainer, even ? styles.imageContainerEven : {}]}>
                     { this.image }
@@ -60,8 +60,8 @@ export default class SliderEntry extends Component {
                 <View style={[styles.textContainer, even ? styles.textContainerEven : {}]}>
                     { uppercaseTitle }
                     <Text
-                      style={[styles.subtitle, even ? styles.subtitleEven : {}]}
-                      numberOfLines={2}
+                        style={[styles.subtitle, even ? styles.subtitleEven : {}]}
+                        numberOfLines={2}
                     >
                         { subtitle }
                     </Text>

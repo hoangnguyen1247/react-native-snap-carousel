@@ -1,8 +1,8 @@
-import { StyleSheet, Dimensions, Platform } from 'react-native';
-import { colors } from './index.style';
+import { StyleSheet, Dimensions, Platform } from "react-native";
+import { colors } from "./index.style";
 
-const IS_IOS = Platform.OS === 'ios';
-const { width: viewportWidth, height: viewportHeight } = Dimensions.get('window');
+const IS_IOS = Platform.OS === "ios";
+const { width: viewportWidth, height: viewportHeight } = Dimensions.get("window");
 
 function wp (percentage) {
     const value = (percentage * viewportWidth) / 100;
@@ -26,7 +26,7 @@ export default StyleSheet.create({
         paddingBottom: 18 // needed for shadow
     },
     shadow: {
-        position: 'absolute',
+        position: "absolute",
         top: 0,
         left: itemHorizontalMargin,
         right: itemHorizontalMargin,
@@ -40,7 +40,7 @@ export default StyleSheet.create({
     imageContainer: {
         flex: 1,
         marginBottom: IS_IOS ? 0 : -1, // Prevent a random Android rendering issue
-        backgroundColor: 'white',
+        backgroundColor: "white",
         borderTopLeftRadius: entryBorderRadius,
         borderTopRightRadius: entryBorderRadius
     },
@@ -49,29 +49,29 @@ export default StyleSheet.create({
     },
     image: {
         ...StyleSheet.absoluteFillObject,
-        resizeMode: 'cover',
+        resizeMode: "cover",
         borderRadius: IS_IOS ? entryBorderRadius : 0,
         borderTopLeftRadius: entryBorderRadius,
         borderTopRightRadius: entryBorderRadius
     },
     // image's border radius is buggy on iOS; let's hack it!
     radiusMask: {
-        position: 'absolute',
+        position: "absolute",
         bottom: 0,
         left: 0,
         right: 0,
         height: entryBorderRadius,
-        backgroundColor: 'white'
+        backgroundColor: "white"
     },
     radiusMaskEven: {
         backgroundColor: colors.black
     },
     textContainer: {
-        justifyContent: 'center',
+        justifyContent: "center",
         paddingTop: 20 - entryBorderRadius,
         paddingBottom: 20,
         paddingHorizontal: 16,
-        backgroundColor: 'white',
+        backgroundColor: "white",
         borderBottomLeftRadius: entryBorderRadius,
         borderBottomRightRadius: entryBorderRadius
     },
@@ -81,19 +81,19 @@ export default StyleSheet.create({
     title: {
         color: colors.black,
         fontSize: 13,
-        fontWeight: 'bold',
+        fontWeight: "bold",
         letterSpacing: 0.5
     },
     titleEven: {
-        color: 'white'
+        color: "white"
     },
     subtitle: {
         marginTop: 6,
         color: colors.gray,
         fontSize: 12,
-        fontStyle: 'italic'
+        fontStyle: "italic"
     },
     subtitleEven: {
-        color: 'rgba(255, 255, 255, 0.7)'
+        color: "rgba(255, 255, 255, 0.7)"
     }
 });

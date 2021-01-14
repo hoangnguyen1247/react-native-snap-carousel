@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
-import { View, Animated, Easing, TouchableOpacity, ViewPropTypes } from 'react-native';
-import PropTypes from 'prop-types';
-import styles from './Pagination.style';
+import React, { PureComponent } from "react";
+import { View, Animated, Easing, TouchableOpacity, ViewPropTypes } from "react-native";
+import PropTypes from "prop-types";
+import styles from "./Pagination.style";
 
 export default class PaginationDot extends PureComponent {
 
@@ -17,7 +17,11 @@ export default class PaginationDot extends PureComponent {
         inactiveStyle: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
         index: PropTypes.number,
         style: ViewPropTypes ? ViewPropTypes.style : View.propTypes.style,
-        tappable: PropTypes.bool
+        tappable: PropTypes.bool,
+        animatedDuration: PropTypes.number,
+        animatedFriction: PropTypes.number,
+        animatedTension: PropTypes.number,
+        delayPressInDot: PropTypes.number,
     };
 
     constructor (props) {
@@ -43,7 +47,7 @@ export default class PaginationDot extends PureComponent {
 
     _animate (toValue = 0) {
         const { animColor, animOpacity, animTransform } = this.state;
-        const { animatedDuration, animatedFriction, animatedTension } = this.props
+        const { animatedDuration, animatedFriction, animatedTension } = this.props;
 
         const commonProperties = {
             toValue,
@@ -135,19 +139,19 @@ export default class PaginationDot extends PureComponent {
                 currentRef._snapToItem(currentRef._getPositionIndex(index));
             } catch (error) {
                 console.warn(
-                    'react-native-snap-carousel | Pagination: ' +
-                    '`carouselRef` has to be a Carousel ref.\n' + error
+                    "react-native-snap-carousel | Pagination: " +
+                    "`carouselRef` has to be a Carousel ref.\n" + error
                 );
             }
         } : undefined;
 
         return (
             <TouchableOpacity
-              accessible={false}
-              style={dotContainerStyle}
-              activeOpacity={tappable ? activeOpacity : 1}
-              onPress={onPress}
-              delayPressIn={delayPressInDot}
+                accessible={false}
+                style={dotContainerStyle}
+                activeOpacity={tappable ? activeOpacity : 1}
+                onPress={onPress}
+                delayPressIn={delayPressInDot}
             >
                 <Animated.View style={dotStyle} />
             </TouchableOpacity>

@@ -1,6 +1,6 @@
-import { Platform } from 'react-native';
+import { Platform } from "react-native";
 
-const IS_ANDROID = Platform.OS === 'android';
+const IS_ANDROID = Platform.OS === "android";
 
 // Get scroll interpolator's input range from an array of slide indexes
 // Indexes are relative to the current active slide (index 0)
@@ -90,7 +90,7 @@ export function shiftAnimatedStyles (index, animatedValue, carouselProps) {
     }
 
     if (carouselProps.inactiveSlideShift !== 0) {
-        const translateProp = carouselProps.vertical ? 'translateX' : 'translateY';
+        const translateProp = carouselProps.vertical ? "translateX" : "translateY";
         animatedTranslate = {
             [translateProp]: animatedValue.interpolate({
                 inputRange: [0, 1],
@@ -124,7 +124,7 @@ export function stackScrollInterpolator (index, carouselProps) {
 }
 export function stackAnimatedStyles (index, animatedValue, carouselProps, cardOffset) {
     const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
-    const translateProp = carouselProps.vertical ? 'translateY' : 'translateX';
+    const translateProp = carouselProps.vertical ? "translateY" : "translateX";
 
     const card1Scale = 0.9;
     const card2Scale = 0.8;
@@ -149,13 +149,13 @@ export function stackAnimatedStyles (index, animatedValue, carouselProps, cardOf
         opacity: animatedValue.interpolate({
             inputRange: [-3, -2, -1, 0],
             outputRange: opacityOutputRange.reverse(),
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [{
             scale: animatedValue.interpolate({
                 inputRange: [-2, -1, 0, 1],
                 outputRange: [card2Scale, card1Scale, 1, card1Scale],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }, {
             [translateProp]: animatedValue.interpolate({
@@ -167,7 +167,7 @@ export function stackAnimatedStyles (index, animatedValue, carouselProps, cardOf
                     0,
                     sizeRef * 0.5
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     } : {
@@ -175,13 +175,13 @@ export function stackAnimatedStyles (index, animatedValue, carouselProps, cardOf
         opacity: animatedValue.interpolate({
             inputRange: [0, 1, 2, 3],
             outputRange: opacityOutputRange,
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [{
             scale: animatedValue.interpolate({
                 inputRange: [-1, 0, 1, 2],
                 outputRange: [card1Scale, 1, card1Scale, card2Scale],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }, {
             [translateProp]: animatedValue.interpolate({
@@ -193,7 +193,7 @@ export function stackAnimatedStyles (index, animatedValue, carouselProps, cardOf
                     getTranslateFromScale(2, card2Scale),
                     getTranslateFromScale(3, card2Scale)
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     };
@@ -215,8 +215,8 @@ export function tinderScrollInterpolator (index, carouselProps) {
 }
 export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardOffset) {
     const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
-    const mainTranslateProp = carouselProps.vertical ? 'translateY' : 'translateX';
-    const secondaryTranslateProp = carouselProps.vertical ? 'translateX' : 'translateY';
+    const mainTranslateProp = carouselProps.vertical ? "translateY" : "translateX";
+    const secondaryTranslateProp = carouselProps.vertical ? "translateX" : "translateY";
 
     const card1Scale = 0.96;
     const card2Scale = 0.92;
@@ -240,19 +240,19 @@ export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardO
         opacity: animatedValue.interpolate({
             inputRange: [-3, -2, -1, 0, 1],
             outputRange: [0, peekingCardsOpacity, peekingCardsOpacity, 1, 0],
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [{
             scale: animatedValue.interpolate({
                 inputRange: [-3, -2, -1, 0],
                 outputRange: [card3Scale, card2Scale, card1Scale, 1],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }, {
             rotate: animatedValue.interpolate({
                 inputRange: [0, 1],
-                outputRange: ['0deg', '22deg'],
-                extrapolate: 'clamp'
+                outputRange: ["0deg", "22deg"],
+                extrapolate: "clamp"
             })
         }, {
             [mainTranslateProp]: animatedValue.interpolate({
@@ -264,7 +264,7 @@ export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardO
                     0,
                     sizeRef * 1.1
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }, {
             [secondaryTranslateProp]: animatedValue.interpolate({
@@ -275,7 +275,7 @@ export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardO
                     getSecondaryTranslateFromScale(-1, card1Scale),
                     0
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     } : {
@@ -283,19 +283,19 @@ export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardO
         opacity: animatedValue.interpolate({
             inputRange: [-1, 0, 1, 2, 3],
             outputRange: [0, 1, peekingCardsOpacity, peekingCardsOpacity, 0],
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [{
             scale: animatedValue.interpolate({
                 inputRange: [0, 1, 2, 3],
                 outputRange: [1, card1Scale, card2Scale, card3Scale],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }, {
             rotate: animatedValue.interpolate({
                 inputRange: [-1, 0],
-                outputRange: ['-22deg', '0deg'],
-                extrapolate: 'clamp'
+                outputRange: ["-22deg", "0deg"],
+                extrapolate: "clamp"
             })
         }, {
             [mainTranslateProp]: animatedValue.interpolate({
@@ -307,7 +307,7 @@ export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardO
                     getMainTranslateFromScale(2, card2Scale),
                     getMainTranslateFromScale(3, card3Scale)
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }, {
             [secondaryTranslateProp]: animatedValue.interpolate({
@@ -318,7 +318,7 @@ export function tinderAnimatedStyles (index, animatedValue, carouselProps, cardO
                     getSecondaryTranslateFromScale(2, card2Scale),
                     getSecondaryTranslateFromScale(3, card3Scale)
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     };

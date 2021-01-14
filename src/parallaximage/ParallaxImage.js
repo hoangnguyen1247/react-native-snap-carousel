@@ -1,9 +1,9 @@
 // Parallax effect inspired by https://github.com/oblador/react-native-parallax/
 
-import React, { Component } from 'react';
-import { View, ViewPropTypes, Image, Animated, Easing, ActivityIndicator, findNodeHandle } from 'react-native';
-import PropTypes from 'prop-types';
-import styles from './ParallaxImage.style';
+import React, { Component } from "react";
+import { View, ViewPropTypes, Image, Animated, Easing, ActivityIndicator, findNodeHandle } from "react-native";
+import PropTypes from "prop-types";
+import styles from "./ParallaxImage.style";
 
 export default class ParallaxImage extends Component {
 
@@ -36,7 +36,7 @@ export default class ParallaxImage extends Component {
         fadeDuration: 500,
         parallaxFactor: 0.3,
         showSpinner: true,
-        spinnerColor: 'rgba(0, 0, 0, 0.4)',
+        spinnerColor: "rgba(0, 0, 0, 0.4)",
         AnimatedImageComponent: Animated.Image
     }
 
@@ -145,7 +145,6 @@ export default class ParallaxImage extends Component {
         const { status, animOpacity, offset, width, height } = this.state;
         const {
             scrollPosition,
-            dimensions,
             vertical,
             sliderWidth,
             sliderHeight,
@@ -156,7 +155,7 @@ export default class ParallaxImage extends Component {
         } = this.props;
 
         const parallaxPadding = (vertical ? height : width) * parallaxFactor;
-        const requiredStyles = { position: 'relative' };
+        const requiredStyles = { position: "relative" };
         const dynamicStyles = {
             width: vertical ? width : width + parallaxPadding * 2,
             height: vertical ? height + parallaxPadding * 2 : height,
@@ -166,14 +165,14 @@ export default class ParallaxImage extends Component {
                     translateX: !vertical ? scrollPosition.interpolate({
                         inputRange: [offset - sliderWidth, offset + sliderWidth],
                         outputRange: [-parallaxPadding, parallaxPadding],
-                        extrapolate: 'clamp'
+                        extrapolate: "clamp"
                     }) : 0
                 },
                 {
                     translateY: vertical ? scrollPosition.interpolate({
                         inputRange: [offset - sliderHeight, offset + sliderHeight],
                         outputRange: [-parallaxPadding, parallaxPadding],
-                        extrapolate: 'clamp'
+                        extrapolate: "clamp"
                     }) : 0
                 }
             ] : []
@@ -181,10 +180,10 @@ export default class ParallaxImage extends Component {
 
         return (
             <AnimatedImageComponent
-              {...other}
-              style={[styles.image, style, requiredStyles, dynamicStyles]}
-              onLoad={this._onLoad}
-              onError={status !== 3 ? this._onError : undefined} // prevent infinite-loop bug
+                {...other}
+                style={[styles.image, style, requiredStyles, dynamicStyles]}
+                onLoad={this._onLoad}
+                onError={status !== 3 ? this._onError : undefined} // prevent infinite-loop bug
             />
         );
     }
@@ -196,9 +195,9 @@ export default class ParallaxImage extends Component {
         return status === 1 && showSpinner ? (
             <View style={styles.loaderContainer}>
                 <ActivityIndicator
-                  size={'small'}
-                  color={spinnerColor}
-                  animating={true}
+                    size={"small"}
+                    color={spinnerColor}
+                    animating={true}
                 />
             </View>
         ) : false;
@@ -209,10 +208,10 @@ export default class ParallaxImage extends Component {
 
         return (
             <View
-              ref={(c) => { this._container = c; }}
-              pointerEvents={'none'}
-              style={[containerStyle, styles.container]}
-              onLayout={this._measureLayout}
+                ref={(c) => { this._container = c; }}
+                pointerEvents={"none"}
+                style={[containerStyle, styles.container]}
+                onLayout={this._measureLayout}
             >
                 { this.image }
                 { this.spinner }

@@ -1,4 +1,4 @@
-import { getInputRangeFromIndexes } from 'react-native-snap-carousel';
+import { getInputRangeFromIndexes } from "react-native-snap-carousel";
 
 // Photo album effect
 function scrollInterpolator1 (index, carouselProps) {
@@ -10,20 +10,20 @@ function scrollInterpolator1 (index, carouselProps) {
 }
 function animatedStyles1 (index, animatedValue, carouselProps) {
     const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
-    const translateProp = carouselProps.vertical ? 'translateY' : 'translateX';
+    const translateProp = carouselProps.vertical ? "translateY" : "translateX";
 
     return {
         zIndex: carouselProps.data.length - index,
         opacity: animatedValue.interpolate({
             inputRange: [2, 3],
             outputRange: [1, 0],
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [{
             rotate: animatedValue.interpolate({
                 inputRange: [-1, 0, 1, 2, 3],
-                outputRange: ['-25deg', '0deg', '-3deg', '1.8deg', '0deg'],
-                extrapolate: 'clamp'
+                outputRange: ["-25deg", "0deg", "-3deg", "1.8deg", "0deg"],
+                extrapolate: "clamp"
             })
         }, {
             [translateProp]: animatedValue.interpolate({
@@ -35,7 +35,7 @@ function animatedStyles1 (index, animatedValue, carouselProps) {
                     -sizeRef * 2, // centered
                     -sizeRef * 3 // centered
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     };
@@ -51,7 +51,7 @@ function scrollInterpolator2 (index, carouselProps) {
 }
 function animatedStyles2 (index, animatedValue, carouselProps) {
     const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
-    const translateProp = carouselProps.vertical ? 'translateY' : 'translateX';
+    const translateProp = carouselProps.vertical ? "translateY" : "translateX";
 
     return {
         zIndex: carouselProps.data.length - index,
@@ -62,8 +62,8 @@ function animatedStyles2 (index, animatedValue, carouselProps) {
         transform: [{
             rotate: animatedValue.interpolate({
                 inputRange: [-1, 0, 1, 2],
-                outputRange: ['0deg', '0deg', '5deg', '8deg'],
-                extrapolate: 'clamp'
+                outputRange: ["0deg", "0deg", "5deg", "8deg"],
+                extrapolate: "clamp"
             })
         }, {
             scale: animatedValue.interpolate({
@@ -79,7 +79,7 @@ function animatedStyles2 (index, animatedValue, carouselProps) {
                     -sizeRef + 30,
                     -sizeRef * 2 + 45
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     };
@@ -95,14 +95,14 @@ function scrollInterpolator3 (index, carouselProps) {
 }
 function animatedStyles3 (index, animatedValue, carouselProps) {
     const sizeRef = carouselProps.vertical ? carouselProps.itemHeight : carouselProps.itemWidth;
-    const translateProp = carouselProps.vertical ? 'translateY' : 'translateX';
+    const translateProp = carouselProps.vertical ? "translateY" : "translateX";
 
     return {
         zIndex: carouselProps.data.length - index,
         opacity: animatedValue.interpolate({
             inputRange: [-1, 0, 1, 2],
             outputRange: [1, 1, 0.75, 0.5],
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [{
             [translateProp]: animatedValue.interpolate({
@@ -113,7 +113,7 @@ function animatedStyles3 (index, animatedValue, carouselProps) {
                     -sizeRef * 2,
                     -sizeRef
                 ],
-                extrapolate: 'clamp'
+                extrapolate: "clamp"
             })
         }]
     };
@@ -133,7 +133,7 @@ function animatedStyles4 (index, animatedValue, carouselProps) {
         opacity: animatedValue.interpolate({
             inputRange: [-1, 0, 1],
             outputRange: [0.75, 1, 0.75],
-            extrapolate: 'clamp'
+            extrapolate: "clamp"
         }),
         transform: [
             {
@@ -143,21 +143,21 @@ function animatedStyles4 (index, animatedValue, carouselProps) {
                 scale: animatedValue.interpolate({
                     inputRange: [-1, 0, 1],
                     outputRange: [0.65, 1, 0.65],
-                    extrapolate: 'clamp'
+                    extrapolate: "clamp"
                 })
             },
             {
                 rotateX: animatedValue.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: ['30deg', '0deg', '30deg'],
-                    extrapolate: 'clamp'
+                    outputRange: ["30deg", "0deg", "30deg"],
+                    extrapolate: "clamp"
                 })
             },
             {
                 rotateY: animatedValue.interpolate({
                     inputRange: [-1, 0, 1],
-                    outputRange: ['-30deg', '0deg', '30deg'],
-                    extrapolate: 'clamp'
+                    outputRange: ["-30deg", "0deg", "30deg"],
+                    extrapolate: "clamp"
                 })
             }
         ]

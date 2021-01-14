@@ -1,11 +1,11 @@
 {
-    "name": "react-native-snap-carousel",
+    "name": "@hoangnguyen1247/react-native-snap-carousel",
     "version": "3.9.1",
     "description": "Swiper/carousel component for React Native with previews, multiple layouts, parallax images, performant handling of huge numbers of items, and RTL support. Compatible with Android & iOS.",
     "main": "src/index.js",
     "repository": {
         "type": "git",
-        "url": "github.com/archriss/react-native-snap-carousel"
+        "url": "github.com/hoangnguyen1247/react-native-snap-carousel"
     },
     "keywords": [
         "react",
@@ -34,8 +34,12 @@
         "component",
         "rtl"
     ],
-    "author": "Archriss <contact@archriss.com> (github.com/archriss)",
+    "author": "Hoàng Ng. <hoangnguyen1247@gmail.com> (github.com/hoangnguyen1247)",
     "license": "BSD-3-Clause",
+    "scripts": {
+        "format": "eslint . --ext js --fix",
+        "lint": "eslint . --ext js"
+    },
     "dependencies": {
         "prop-types": "^15.6.1",
         "react-addons-shallow-compare": "15.6.2"
@@ -47,17 +51,18 @@
     "devDependencies": {
         "babel-eslint": "^8.2.2",
         "eslint": "^4.19.1",
-        "eslint-config-standard": "^10.2.1",
-        "eslint-config-standard-react": "^5.0.0",
-        "eslint-plugin-import": "^2.11.0",
-        "eslint-plugin-node": "^5.2.1",
-        "eslint-plugin-promise": "^3.7.0",
         "eslint-plugin-react": "^7.7.0",
-        "eslint-plugin-standard": "^3.0.1"
+        "husky": "^4.3.7",
+        "react": "16.13.1"
     },
-    "homepage": "https://github.com/archriss/react-native-snap-carousel",
+    "husky": {
+        "hooks": {
+            "pre-commit": "yarn lint"
+        }
+    },
+    "homepage": "https://github.com/hoangnguyen1247/react-native-snap-carousel",
     "bugs": {
-        "url": "https://github.com/archriss/react-native-snap-carousel/issues"
+        "url": "https://github.com/hoangnguyen1247/react-native-snap-carousel/issues"
     },
     "readmeFilename": "README.md"
 }

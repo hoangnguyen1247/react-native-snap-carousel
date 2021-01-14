@@ -33,7 +33,7 @@ class LeftArrow extends React.Component {
             >
                 {comps}
             </View>
-        )
+        );
     }
 }
 
