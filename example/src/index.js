@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Platform, View, ScrollView, Text, StatusBar, SafeAreaView } from "react-native";
 import LinearGradient from "react-native-linear-gradient";
-import Carousel, { Pagination } from "react-native-snap-carousel";
+import Carousel, { Pagination, LeftArrow, RightArrow } from "react-native-snap-carousel";
 import { sliderWidth, itemWidth } from "./styles/SliderEntry.style";
 import SliderEntry from "./components/SliderEntry";
 import styles, { colors } from "./styles/index.style";
@@ -50,26 +50,38 @@ export default class example extends Component {
             <View style={styles.exampleContainer}>
                 <Text style={styles.title}>{`Example ${number}`}</Text>
                 <Text style={styles.subtitle}>{title}</Text>
-                <Carousel
-                    ref={c => this._slider1Ref = c}
-                    data={ENTRIES1}
-                    renderItem={this._renderItemWithParallax}
-                    sliderWidth={sliderWidth}
-                    itemWidth={itemWidth}
-                    hasParallaxImages={true}
-                    firstItem={SLIDER_1_FIRST_ITEM}
-                    inactiveSlideScale={0.94}
-                    inactiveSlideOpacity={0.7}
-                    // inactiveSlideShift={20}
-                    containerCustomStyle={styles.slider}
-                    contentContainerCustomStyle={styles.sliderContentContainer}
-                    loop={true}
-                    loopClonesPerSide={2}
-                    autoplay={true}
-                    autoplayDelay={500}
-                    autoplayInterval={3000}
-                    onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
-                />
+                <View>
+                    <LeftArrow
+                        onPress={() => {
+                            this._slider1Ref.snapToPrev();
+                        }}
+                    />
+                    <Carousel
+                        ref={c => this._slider1Ref = c}
+                        data={ENTRIES1}
+                        renderItem={this._renderItemWithParallax}
+                        sliderWidth={sliderWidth}
+                        itemWidth={itemWidth}
+                        hasParallaxImages={true}
+                        firstItem={SLIDER_1_FIRST_ITEM}
+                        inactiveSlideScale={0.94}
+                        inactiveSlideOpacity={0.7}
+                        // inactiveSlideShift={20}
+                        containerCustomStyle={styles.slider}
+                        contentContainerCustomStyle={styles.sliderContentContainer}
+                        loop={true}
+                        loopClonesPerSide={2}
+                        autoplay={true}
+                        autoplayDelay={500}
+                        autoplayInterval={3000}
+                        onSnapToItem={(index) => this.setState({ slider1ActiveSlide: index }) }
+                    />
+                    <RightArrow
+                        onPress={() => {
+                            this._slider1Ref.snapToNext();
+                        }}
+                    />
+                </View>
                 <Pagination
                     dotsLength={ENTRIES1.length}
                     activeDotIndex={slider1ActiveSlide}

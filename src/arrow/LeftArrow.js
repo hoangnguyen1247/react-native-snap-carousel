@@ -7,6 +7,7 @@ class LeftArrow extends React.Component {
     static propTypes = {
         title: PropTypes.string,
         CenterComponent: PropTypes.node,
+        onPress: PropTypes.func,
     }
 
     static defaultProps = {
@@ -18,11 +19,13 @@ class LeftArrow extends React.Component {
         const {
             title,
             CenterComponent,
+            onPress,
         } = this.props;
 
         const comps = CenterComponent ? CenterComponent : (
             <Button
-                title={title}    
+                title={title}
+                onPress={onPress}
             />
         );
 
